@@ -1,5 +1,5 @@
 
-# 链接   [czh996.top](czh996.top)
+# 链接   [czh996.top](http://czh996.top)
 
 ## MI STORE
 
