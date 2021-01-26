@@ -1,0 +1,133 @@
+.header {
+  height: 200px;
+}
+.header .nav {
+  height: 40px;
+  background-color: #32373e;
+}
+.header .nav__inner {
+  width: 1200px;
+  margin: 0 auto;
+}
+.header .nav__inner::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+.header .nav__left {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.header .nav__left .nav__logo {
+  float: left;
+  font-size: 22px;
+  color: #00b38a;
+}
+.header .nav__left .nav__city {
+  float: left;
+  margin: 0 35px 0 35px;
+  font-size: 14px;
+  color: #0dca9f;
+}
+.header .nav__left .nav__city::after {
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  left: 5px;
+  border-top: 5px solid #5f646d;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent;
+  width: 0;
+  height: 0;
+}
+.header .nav__left .nav__list {
+  float: left;
+}
+.header .nav__left .nav__list-item {
+  float: left;
+  color: #afb5c0;
+  padding: 0 21px;
+  font-size: 14px;
+}
+.header .nav__left .nav__list-item a {
+  color: #afb5c0;
+}
+.header .nav__left .nav__list-item:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.header .nav__left .nav__list-item:hover a {
+  color: #fff;
+}
+.header .nav__left .nav__list-item:first-child {
+  color: #fff;
+  background-color: #24282c;
+}
+.header .nav__left .nav__list-item:first-child a {
+  color: #fff;
+}
+.header .nav__right {
+  float: right;
+  color: #afb5c0;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+}
+.header .nav__right a {
+  color: #afb5c0;
+}
+.header .nav__right .nav__resume {
+  float: right;
+}
+.header .nav__right .nav__resume:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.header .nav__right .nav__resume:hover a {
+  color: #fff;
+}
+.header .nav__right .nav__profile {
+  float: right;
+  margin: 0 50px;
+}
+.header .nav__right .nav__profile a {
+  float: left;
+}
+.header .nav__right .nav__profile a:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.header .nav__right .nav__profile a:hover a {
+  color: #fff;
+}
+.header .nav__right .nav__profile span {
+  float: left;
+  margin: 0 11px 0 6px;
+  width: 1px;
+  height: 40px;
+  font-weight: 100;
+  color: #445a66;
+}
+.header .nav__right .nav__enterprise {
+  float: right;
+}
+.header .nav__right .nav__enterprise:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.header .nav__right .nav__enterprise:hover a {
+  color: #fff;
+}
+.header .banner {
+  height: 120px;
+  background-color: #00b38a;
+}
+.header .banner__inner {
+  width: 1200px;
+  margin: 0 auto;
+}

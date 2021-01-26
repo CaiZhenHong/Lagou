@@ -1,0 +1,146 @@
+// 原子样式 START
+@mixin container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@mixin fl {
+  float: left;
+}
+
+@mixin fr {
+  float: right;
+}
+
+@mixin fix-clear {
+  &::after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    clear: both;
+  }
+}
+// 原子类样式 END
+
+// 小组件 START
+@mixin triangle($color) {
+  //三角形
+  border-top: 5px solid $color;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent;
+  width: 0;
+  height: 0;
+}
+
+@mixin hover-color($color) {
+  //设置a标签 hover 颜色
+  &:hover {
+    cursor: pointer;
+    a {
+      color: $color;
+    }
+    color: $color;
+  }
+}
+
+@mixin color($color) {
+  color: $color;
+  a {
+    color: $color;
+  }
+}
+//小组件 END
+
+.header {
+  height: 200px;
+  .nav {
+    height: 40px;
+    background-color: #32373e;
+  }
+  .nav__inner {
+    @include container();
+    @include fix-clear();
+  }
+  .nav__left {
+    @include fl();
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    .nav__logo {
+      @include fl();
+      font-size: 22px;
+      color: #00b38a;
+    }
+    .nav__city {
+      @include fl();
+      margin: 0 35px 0 35px;
+      font-size: 14px;
+      color: #0dca9f;
+      &::after {
+        //三角形下拉
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: 3px;
+        left: 5px;
+        @include triangle(#5f646d);
+      }
+    }
+    .nav__list {
+      @include fl();
+    }
+    .nav__list-item {
+      @include fl();
+      @include color(#afb5c0);
+      @include hover-color(#fff);
+      padding: 0 21px;
+      font-size: 14px;
+      &:first-child {
+        @include color(#fff);
+        background-color: #24282c;
+      }
+    }
+  }
+
+  .nav__right {
+    @include fr();
+    @include color(#afb5c0);
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    .nav__resume {
+      @include fr();
+      @include hover-color(#fff);
+    }
+    .nav__profile {
+      @include fr();
+      margin: 0 50px;
+      a {
+        @include fl();
+        @include hover-color(#fff);
+      }
+      span {
+        @include fl();
+        margin: 0 11px 0 6px;
+        width: 1px;
+        height: 40px;
+        font-weight: 100;
+        color: #445a66;
+      }
+    }
+    .nav__enterprise {
+      @include fr();
+      @include hover-color(#fff);
+    }
+  }
+
+  .banner {
+    height: 120px;
+    background-color: #00b38a;
+  }
+
+  .banner__inner {
+    @include container();
+  }
+}
