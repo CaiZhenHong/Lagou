@@ -106,8 +106,8 @@ input::-ms-clear {
   display: none !important;
 }
 body {
-  font: 12px/1.5 \5fae\8f6f\96c5\9ed1, \5b8b\4f53, "Hiragino Sans GB", STHeiti,
-    "WenQuanYi Micro Hei", "Droid Sans Fallback", SimSun, sans-serif;
+  font: 12px/1.5 \5fae\8f6f\96c5\9ed1, \5b8b\4f53, 'Hiragino Sans GB', STHeiti,
+    'WenQuanYi Micro Hei', 'Droid Sans Fallback', SimSun, sans-serif;
   background: #fff;
 }
 a {
@@ -116,4 +116,13 @@ a {
 }
 a:hover {
   text-decoration: none;
+}
+input {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+body,
+html {
+  height: 100%;
 }

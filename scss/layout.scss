@@ -1,146 +1,727 @@
-// 原子样式 START
-@mixin container {
+//原子样式 START
+@mixin fl {
+  float: left;
+}
+@mixin fr {
+  float: right;
+}
+@mixin clear-fix {
+  &::after,
+  &::before {
+    content: '';
+    width: 0;
+    height: 0;
+    display: block;
+    clear: both;
+    visibility: hidden;
+  }
+}
+@mixin inner {
   width: 1200px;
   margin: 0 auto;
 }
 
-@mixin fl {
-  float: left;
-}
-
-@mixin fr {
-  float: right;
-}
-
-@mixin fix-clear {
-  &::after {
-    content: '';
-    display: block;
-    visibility: hidden;
-    clear: both;
+@mixin color-a($color) {
+  a {
+    color: $color; //用于设置a标签的颜色
   }
-}
-// 原子类样式 END
-
-// 小组件 START
-@mixin triangle($color) {
-  //三角形
-  border-top: 5px solid $color;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 5px solid transparent;
-  width: 0;
-  height: 0;
 }
 
 @mixin hover-color($color) {
-  //设置a标签 hover 颜色
   &:hover {
-    cursor: pointer;
+    color: $color;
     a {
       color: $color;
     }
-    color: $color;
   }
 }
+//原子样式 END
 
-@mixin color($color) {
-  color: $color;
-  a {
-    color: $color;
-  }
+.side-bar {
+  position: fixed;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  margin-top: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 3px 1px rgb(160, 158, 158);
 }
-//小组件 END
 
 .header {
-  height: 200px;
+  overflow: hidden;
   .nav {
-    height: 40px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    @include color-a(#afb5c0);
     background-color: #32373e;
-  }
-  .nav__inner {
-    @include container();
-    @include fix-clear();
-  }
-  .nav__left {
-    @include fl();
     height: 40px;
     line-height: 40px;
-    text-align: center;
+  }
+  .nav__inner {
+    @include inner();
+    @include clear-fix();
+    font-size: 14px;
+  }
+  .nav__left {
+    @include clear-fix();
+    @include fl();
     .nav__logo {
       @include fl();
+      margin-right: 33px;
       font-size: 22px;
-      color: #00b38a;
+      color: #01b28a;
     }
     .nav__city {
       @include fl();
-      margin: 0 35px 0 35px;
-      font-size: 14px;
+      width: 60px;
+      margin-right: 30px;
+      background: url('/img/triangle.png') no-repeat right;
       color: #0dca9f;
-      &::after {
-        //三角形下拉
-        content: '';
-        display: inline-block;
-        position: relative;
-        top: 3px;
-        left: 5px;
-        @include triangle(#5f646d);
-      }
     }
     .nav__list {
       @include fl();
     }
     .nav__list-item {
       @include fl();
-      @include color(#afb5c0);
       @include hover-color(#fff);
+      height: 40px;
       padding: 0 21px;
-      font-size: 14px;
+      text-align: center;
       &:first-child {
-        @include color(#fff);
         background-color: #24282c;
+        a {
+          color: #fff;
+        }
       }
     }
   }
-
   .nav__right {
+    @include clear-fix();
     @include fr();
-    @include color(#afb5c0);
-    line-height: 40px;
-    text-align: center;
-    font-size: 14px;
-    .nav__resume {
-      @include fr();
-      @include hover-color(#fff);
-    }
-    .nav__profile {
-      @include fr();
-      margin: 0 50px;
-      a {
-        @include fl();
-        @include hover-color(#fff);
-      }
-      span {
-        @include fl();
-        margin: 0 11px 0 6px;
-        width: 1px;
-        height: 40px;
-        font-weight: 100;
-        color: #445a66;
-      }
-    }
     .nav__enterprise {
       @include fr();
       @include hover-color(#fff);
+      margin-left: 50px;
+    }
+    .nav__profile {
+      @include fr();
+      width: 100px;
+      margin-left: 25px;
+      background: url('/img/profile.png') no-repeat left;
+      background-size: 18px 18px;
+      a {
+        @include hover-color(#fff);
+        @include fr();
+      }
+      span {
+        @include fr();
+        margin: 0 7px;
+        color: #445a66;
+      }
+    }
+    .nav__resume {
+      @include hover-color(#fff);
+      @include fr();
     }
   }
 
-  .banner {
-    height: 120px;
+  .ad {
     background-color: #00b38a;
+    width: 100%;
+    margin-top: 40px;
+  }
+  .ad__inner {
+    @include inner();
+    @include clear-fix();
+  }
+  .ad__left {
+    @include fl();
+    .ad__img-logo {
+      @include fl();
+      height: 120px;
+    }
+    .ad__text {
+      @include fl();
+      margin-top: 35px;
+      margin-left: 10px;
+    }
+    .ad__img-text {
+      height: 30px;
+    }
+    .ad__content {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #fff;
+    }
+  }
+  .ad__right {
+    @include fr();
+    .ad__login {
+      @include clear-fix();
+      margin-top: 40px;
+      text-align: center;
+      line-height: 35px;
+      font-size: 14px;
+    }
+    %login {
+      @include fr();
+      height: 35px;
+      border: none;
+      background-color: #fff;
+    }
+    .ad__login-btn {
+      @extend %login;
+      box-sizing: border-box;
+      width: 105px;
+      margin-left: 8px;
+      font-weight: 700;
+      border: 1px solid #ffffffd8;
+      color: rgba(255, 255, 255, 0.781);
+      background-color: #00b38a;
+      cursor: pointer;
+      &:hover {
+        background-color: #33c2a1;
+      }
+    }
+    .ad__code-btn {
+      @extend %login;
+      width: 50px;
+      color: #00b38a;
+      cursor: pointer;
+    }
+    .ad__line {
+      @extend %login;
+      width: 1px;
+      font-weight: 100;
+      color: #cccccc;
+    }
+    .ad__auth-code {
+      @extend %login;
+      width: 85px;
+      margin-left: 8px;
+      text-align: left;
+      padding-left: 10px;
+      color: #333;
+      &::placeholder {
+        color: #cccccc;
+      }
+    }
+    .ad__phone {
+      @extend %login;
+      width: 135px;
+      text-align: left;
+      padding-left: 10px;
+      color: #333;
+      &::placeholder {
+        color: #cccccc;
+      }
+    }
+    .ad__area-code {
+      @extend %login;
+      width: 55px;
+      padding-right: 10px;
+      color: #999999;
+      background: #fff url('/img/arrow-down.png') no-repeat right;
+      cursor: pointer;
+    }
+    .ad__msg {
+      display: none;
+    }
   }
 
+  .search {
+    overflow: hidden;
+    width: 100%;
+    height: 133px;
+    background-color: #f2f5f4;
+  }
+  .search__inner {
+    @include clear-fix();
+    width: 795px+140px;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+  .search__input {
+    @include fl();
+    box-sizing: border-box;
+    width: 780px;
+    height: 45px;
+    padding-left: 15px;
+    line-height: 45px;
+    border: 1px solid #e8e8e8;
+    font-size: 16px;
+    &::placeholder {
+      color: #757575;
+    }
+    &:focus {
+      border: 1px solid #00b38a;
+    }
+  }
+  .search__btn {
+    @include fl();
+    width: 140px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    background-color: #00b38a;
+    &:hover {
+      background-color: #00a57f;
+      cursor: pointer;
+    }
+  }
+}
+
+.banner {
+  width: 100%;
+  background-color: #fff;
   .banner__inner {
-    @include container();
+    @include inner();
+    @include clear-fix();
+    margin-top: 45px;
+  }
+  .banner__left {
+    @include fl();
+    margin-top: -12px;
+    .banner__list {
+      @include clear-fix();
+      width: 305px;
+      padding-left: 10px;
+      height: 47px;
+      line-height: 47px;
+      background: url('/img/arrow-right.png') no-repeat 298px;
+      &:hover {
+        box-shadow: 0 0 5px -1px rgba(128, 128, 128, 0.692);
+      }
+    }
+    .banner__list-title {
+      @include fl();
+      font-size: 18px;
+      margin-right: 12px;
+      color: #333;
+    }
+    .banner__list-item {
+      @include fl();
+      margin-right: 25px;
+      font-size: 14px;
+      @include color-a(#333333e0);
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        text-decoration: underline;
+        @include color-a(#00b38a);
+      }
+    }
+  }
+  .banner__right {
+    @include fr();
+    position: relative; //子元素定位使用
+    width: 840px;
+    height: 346px;
+  }
+  .banner__pointers {
+    position: absolute;
+    right: 50%;
+    bottom: 15px;
+  }
+  .banner__pointer {
+    @include fl();
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
+    border-radius: 50%;
+    background-color: #ffffffc7;
+  }
+}
+
+.main {
+  margin-top: 55px;
+  .job {
+    .job__inner {
+      @include inner();
+    }
+    .job__category {
+      overflow: hidden;
+      height: 37px;
+      line-height: 35px;
+      font-size: 16px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .job__hot {
+      box-sizing: border-box;
+      @include fl();
+      margin-right: 55px;
+      border-bottom: 2px solid #333;
+      cursor: pointer;
+    }
+    .job__new {
+      @include fl();
+      color: #999999;
+      cursor: pointer;
+    }
+    .job__msg {
+      height: 60px;
+      line-height: 60px;
+      padding-left: 30px;
+      font-size: 14px;
+      color: #999999;
+    }
+    .job__list {
+      @include clear-fix();
+      width: 1200px+15px;
+    }
+    .job__list-item {
+      @include clear-fix();
+      @include fl();
+      box-sizing: border-box;
+      width: 390px;
+      height: 200px;
+      padding: 18px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #eaeeed;
+      &:hover {
+        box-shadow: 0 0 15px -5px rgba(128, 128, 128, 0.377);
+      }
+    }
+    .job__info {
+      @include clear-fix();
+      height: 16px;
+      line-height: 16px;
+      margin: 5px 0;
+    }
+    .job__info-name {
+      @include fl();
+      width: 100px;
+      font-size: 16px;
+      height: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #333;
+    }
+    .job__info-time {
+      @include fl();
+      font-size: 14px;
+      height: 16px;
+      margin-left: 15px;
+      color: #999999;
+    }
+    .job__info-salary {
+      @include fr();
+      height: 16px;
+      font-size: 16px;
+      color: #fa6041;
+    }
+    .job__conditions {
+      height: 14px;
+      line-height: 14px;
+      margin: 10px 0;
+      font-size: 14px;
+      color: #777777;
+    }
+    .job__keywords {
+      @include clear-fix();
+      line-height: 12px;
+      margin-top: 15px;
+      padding-bottom: 20px;
+      margin-bottom: 18px;
+      border-bottom: 1px dashed #e0e0e0;
+    }
+    .job__keyword {
+      @include fl();
+      box-sizing: border-box;
+      height: 30px;
+      padding: 0 10px;
+      margin-right: 10px;
+      line-height: 30px;
+      border: 1px solid #f0f0f0;
+      border-radius: 3px;
+      font-size: 14px;
+      color: #999999;
+    }
+    .job__company {
+      @include clear-fix();
+      height: 40px;
+    }
+    .job__company-logo {
+      height: 40px;
+      @include fl();
+    }
+    .job__company-info {
+      @include fl();
+      font-size: 14px;
+      margin-left: 15px;
+    }
+    .job__company-name {
+      color: #555555;
+    }
+    .job__company-keywords {
+      color: #999999;
+    }
+    .job__more {
+      height: 42px;
+      line-height: 42px;
+      width: 388px;
+      margin: 0 auto;
+      border: 1px solid #00b38a;
+      font-size: 16px;
+      text-align: center;
+      color: #00b38a;
+      &:hover {
+        color: #fff;
+        background-color: #00b38a;
+        cursor: pointer;
+      }
+    }
+  }
+  .company {
+    margin-top: 65px;
+    .company__inner {
+      @include inner();
+    }
+    .company__category {
+      height: 37px;
+      line-height: 35px;
+      font-size: 16px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .company__hot {
+      box-sizing: border-box;
+      @include fl();
+      margin-right: 55px;
+      border-bottom: 2px solid #333;
+      cursor: pointer;
+    }
+    .company__msg {
+      height: 60px;
+      line-height: 60px;
+      padding-left: 30px;
+      font-size: 14px;
+      color: #999999;
+    }
+    .company__list {
+      width: 1200px+15px;
+      @include clear-fix();
+      overflow: hidden;
+    }
+    .company__list-item {
+      @include fl();
+      box-sizing: border-box;
+      width: 285px;
+      height: 270px;
+      padding: 20px 13px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      text-align: center;
+      border: 1px solid #eaeeed;
+      &:hover {
+        box-shadow: 0 0 15px -5px rgba(128, 128, 128, 0.377);
+      }
+    }
+    .company__logo {
+      height: 80px;
+      width: 80px;
+    }
+    .company__name {
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+    }
+    .company__keywords {
+      font-size: 14px;
+      color: #adadad;
+    }
+    .company__intro {
+      height: 45px;
+      line-height: 45px;
+      font-size: 14px;
+      border-bottom: 1px dashed #e0e0e0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #6a6863;
+    }
+    .company__job {
+      @include clear-fix();
+      margin-top: 12px;
+      span {
+        @include fl();
+        display: block;
+        width: 1px;
+        height: 35px;
+        margin: 0 24px;
+        background-color: #eaeeed;
+      }
+    }
+    .company__job-item {
+      @include fl();
+      font-size: 12px;
+      color: #999999;
+      cursor: pointer;
+      &:hover {
+        color: #00b38a;
+      }
+    }
+    .company__job-count {
+      color: #00b38a;
+      margin-bottom: -4px;
+      font-size: 14px;
+    }
+    .company__job-name {
+    }
+    .company__more {
+      height: 42px;
+      line-height: 42px;
+      width: 388px;
+      margin: 0 auto;
+      border: 1px solid #00b38a;
+      font-size: 16px;
+      text-align: center;
+      color: #00b38a;
+      &:hover {
+        color: #fff;
+        background-color: #00b38a;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.footer {
+  margin-top: 65px;
+  .links {
+    .links__inner {
+      @include clear-fix();
+      @include inner();
+    }
+    .links__title {
+      height: 37px;
+      margin-bottom: 30px;
+      line-height: 35px;
+      font-size: 16px;
+      border-bottom: 1px solid #e8e8e8;
+      a {
+        @include fl();
+        margin-right: 25px;
+        color: #333;
+        cursor: pointer;
+      }
+      a:first-of-type {
+        box-sizing: border-box;
+        @include fl();
+        margin-right: 25px;
+        border-bottom: 2px solid #333;
+        cursor: pointer;
+      }
+    }
+    .links__content {
+      @include fl();
+      overflow: hidden;
+      a {
+        @include color-a(#333);
+        @include hover-color(#00b38a);
+        @include fl();
+        margin-left: 15px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .links__more {
+      @include fr();
+      color: #999;
+      margin-bottom: 95px;
+    }
+  }
+  hr {
+    border: none;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .lagou {
+    margin-top: 30px;
+    .lagou__inner {
+      @include inner();
+      @include clear-fix();
+      padding-bottom: 70px;
+    }
+
+    .lagou__left {
+      @include clear-fix();
+      @include fl();
+      border-right: 1px solid #e8e8e8;
+      width: 180px;
+      padding-right: 130px;
+      .lagou__download,
+      .lagou__applet {
+        width: 180px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #00b38a;
+        margin-bottom: 15px;
+        font-size: 14px;
+        text-align: center;
+        color: #00b38a;
+        &:hover {
+          color: #fff;
+          background-color: #00b38a;
+          cursor: pointer;
+        }
+      }
+
+      .lagou__wechat {
+        @include fl();
+        font-size: 14px;
+        @include color-a(#333);
+        @include hover-color(#00b38a);
+      }
+      .lagou__weibo {
+        @include fr();
+        font-size: 14px;
+        @include color-a(#333);
+        @include hover-color(#00b38a);
+      }
+    }
+    .lagou__right {
+      @include clear-fix();
+      margin-left: 130px-170px;
+      @include fr();
+      .lagou__list {
+        @include fl();
+        margin-left: 170px;
+      }
+      .lagou__list-title {
+        margin-bottom: 25px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #555555;
+      }
+      .lagou__list-item {
+        color: #333;
+        @include hover-color(#00b38a);
+        margin-bottom: 15px;
+        font-size: 14px;
+        &:hover {
+          color: #333;
+        }
+      }
+    }
+  }
+
+  .records {
+    @include clear-fix();
+    background-color: #fafafa;
+    .records__inner {
+      @include inner();
+    }
+    .records__content {
+      height: 100px;
+      & > div {
+        @include fl();
+      }
+    }
   }
 }
