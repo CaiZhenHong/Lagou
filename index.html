@@ -8,13 +8,27 @@
   </head>
 
   <body>
-    <div class="side-bar"></div>
-
+    <div class="to-top"></div>
+    <div class="side-bar">
+      <div class="side-bar__item--hover"></div>
+      <div class="side-bar__list">
+        <a href="" class="side-bar__item collect"></a>
+        <a href="" class="side-bar__item record"></a>
+        <a href="" class="side-bar__item subscription"></a>
+        <a href="" class="side-bar__item offer"></a>
+        <a href="" class="side-bar__item qr-code">
+          <div class="side-bar__qr-code--hover">
+            <img src="/img/qc-code.png" alt="" />
+            <div>扫码下载APP</div>
+          </div>
+        </a>
+      </div>
+    </div>
     <div class="header">
       <div class="nav">
         <div class="nav__inner">
           <div class="nav__left">
-            <a class="nav__logo" href="">拉钩</a>
+            <a class="nav__logo" href=""></a>
             <a class="nav__city" href="">全国站</a>
             <ul class="nav__list">
               <li class="nav__list-item"><a href="">首页</a></li>
@@ -30,8 +44,11 @@
             <a class="nav__enterprise" href="">进入企业版</a>
             <div class="nav__profile">
               <a href="">注册</a>
-              <span>|</span>
-              <a href="">登录</a>
+              <span class="nav__line">|</span>
+              <a href="">
+                <span class="nav__profile-icon"></span>
+                登录
+              </a>
             </div>
             <a class="nav__resume" href="">上传附件简历</a>
           </div>
@@ -63,15 +80,13 @@
           </div>
         </div>
       </div>
-
-      <div class="search">
-        <form class="search__inner">
-          <input class="search__input" type="input" placeholder="搜索职位、公司或地点" />
-          <div class="search__btn">搜索</div>
-        </form>
-      </div>
     </div>
-
+    <div class="search">
+      <form class="search__inner">
+        <input class="search__input" type="input" placeholder="搜索职位、公司或地点" />
+        <div class="search__btn">搜索</div>
+      </form>
+    </div>
     <div class="banner">
       <div class="banner__inner">
         <div class="banner__left">
@@ -133,7 +148,12 @@
           </dl>
         </div>
         <div class="banner__right">
-          <img class="banner__img" src="./img/banner-0.JPG" />
+          <ul class="banner__img">
+            <img src="./img/banner-0.JPG" />
+            <img src="./img/banner-0.JPG" />
+            <img src="./img/banner-1.PNG" />
+            <img src="./img/banner-0.JPG" />
+          </ul>
           <ul class="banner__pointers">
             <li class="banner__pointer"></li>
             <li class="banner__pointer"></li>
@@ -553,10 +573,27 @@
       <div class="lagou">
         <div class="lagou__inner">
           <div class="lagou__left">
-            <div class="lagou__download">下载拉钩APP</div>
-            <div class="lagou__applet">微信小程序</div>
-            <div class="lagou__wechat"><a href="">拉钩微信</a></div>
-            <div class="lagou__weibo"><a href="">拉钩微博</a></div>
+            <img class="lagou__left--hover" src="/img/xiaochengxu.png" />
+            <div class="lagou__download">
+              <span></span>
+              下载拉钩APP
+            </div>
+            <div class="lagou__applet">
+              <span></span>
+              微信小程序
+            </div>
+            <div class="lagou__wechat">
+              <a href="">
+                <span></span>
+                拉钩微信
+              </a>
+            </div>
+            <div class="lagou__weibo">
+              <a href="">
+                <span></span>
+                拉钩微博
+              </a>
+            </div>
           </div>
           <div class="lagou__right">
             <dl class="lagou__list">
@@ -584,18 +621,24 @@
         <div class="records">
           <div class="records__inner">
             <div class="records__content">
-              <div>©2021 拉勾网</div>
-              <div>京ICP备14023790号-2</div>
-              <div>京公网安备 11010802024043号</div>
-              <div>
-                <div>违法和不良信息举报</div>
+              <div class="records__copyright">©2021 拉勾网</div>
+              <a class="records__num1" href="">京ICP备14023790号-2</a>
+              <a class="records__num2" href="">
+                <span></span>
+                京公网安备 11010802024043号
+              </a>
+              <div class="records__report">
+                <span></span>
+                <div class="records__report-title">违法和不良信息举报</div>
                 <div>电话: 4006 2828 35</div>
                 <div>邮箱: cc@lagou.com</div>
               </div>
             </div>
+            <div class="lagou__mission"></div>
           </div>
         </div>
       </div>
     </div>
+    <script src="/js/main.js"></script>
   </body>
 </html>
