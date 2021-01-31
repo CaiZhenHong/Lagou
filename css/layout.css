@@ -434,6 +434,7 @@
   padding-left: 10px;
   height: 47px;
   line-height: 47px;
+  background: url("/img/arrow_right.png") no-repeat right;
 }
 .banner .banner__left .banner__list::after, .banner .banner__left .banner__list::before {
   content: "";
@@ -476,14 +477,18 @@
   width: 840px;
   height: 346px;
   overflow: hidden;
+  cursor: pointer;
 }
 .banner .banner__right img {
   float: left;
 }
 .banner .banner__img {
-  margin-left: 0;
-  width: 2520px;
+  width: 4200px;
   height: 100%;
+}
+.banner .banner__img:hover .banner__pre,
+.banner .banner__img:hover .banner__next {
+  display: block;
 }
 .banner .banner__pointers {
   position: absolute;
@@ -495,8 +500,37 @@
   width: 6px;
   height: 6px;
   margin: 0 3px;
-  border-radius: 50%;
-  background-color: #ffffffc7;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.78);
+}
+.banner .banner__pointer:hover {
+  background-color: #fff;
+}
+.banner .banner__pre {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -20px;
+  width: 30px;
+  height: 40px;
+  background: url("/img/banner_left.png") no-repeat center;
+}
+.banner .banner__pre:hover {
+  background-image: url("/img/banner_left_hover.png");
+}
+.banner .banner__next {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -20px;
+  width: 30px;
+  height: 40px;
+  background: url("/img/banner_right.png") no-repeat center;
+}
+.banner .banner__next:hover {
+  background-image: url("/img/banner_right_hover.png");
 }
 
 .main {
